@@ -8,7 +8,7 @@ export type SliderProps = {
   min: number;
   max: number;
   defaultValue: number;
-  id: string;
+  id: keyof Inputs;
   label: string;
   step?: number;
   register: UseFormRegister<Inputs>;

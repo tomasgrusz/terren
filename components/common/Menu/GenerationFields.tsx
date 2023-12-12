@@ -27,7 +27,7 @@ const GenerationFields: React.FC<GenerationFieldsProps> = ({
         id="seed"
         defaultValue={Number.parseInt(searchParams.get("seed") || "10")}
         register={register}
-        value={watch("seed")}
+        value={Number.parseInt(watch("seed"))}
       />
       <Slider
         min={1}
@@ -36,7 +36,7 @@ const GenerationFields: React.FC<GenerationFieldsProps> = ({
         id="size"
         defaultValue={Number.parseInt(searchParams.get("size") || "10")}
         register={register}
-        value={watch("size")}
+        value={Number.parseInt(watch("size"))}
       />
       <Slider
         min={1.0}
@@ -46,7 +46,7 @@ const GenerationFields: React.FC<GenerationFieldsProps> = ({
         register={register}
         id="height"
         defaultValue={Number.parseFloat(searchParams.get("height") || "1.0")}
-        value={watch("height")}
+        value={Number.parseFloat(watch("height"))}
       />
       {noiseMap && <NoiseMapImage noiseMap={noiseMap} color />}
     </>

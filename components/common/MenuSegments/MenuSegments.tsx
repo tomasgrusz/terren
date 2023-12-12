@@ -2,11 +2,11 @@ import { ReactNode, useState } from "react";
 import styles from "./MenuSegments.module.scss";
 
 type MenuSegmentsProps = {
-  children: ReactNode;
+  children: ReactNode[];
 };
 
 const MenuSegments: React.FC<MenuSegmentsProps> = ({ children }) => {
-  const [segment, setSegment] = useState(0);
+  const [segment, setSegment] = useState<number>(0);
   return (
     <div className={styles.MenuSegments}>
       <div className={styles.buttons}>

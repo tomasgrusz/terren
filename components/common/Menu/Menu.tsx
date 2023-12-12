@@ -13,6 +13,7 @@ import MenuSegments from "../MenuSegments";
 export type Inputs = {
   size: string;
   height: string;
+  seed: string;
 };
 
 const Menu = () => {
@@ -40,7 +41,7 @@ const Menu = () => {
       current.delete("seed");
     } else {
       for (const property in data) {
-        current.set(property, data[property]);
+        current.set(property, data[property as keyof Inputs]);
       }
     }
 

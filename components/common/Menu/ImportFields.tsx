@@ -15,7 +15,7 @@ const ImportFields: React.FC<ImportFieldsProps> = () => {
 
   return (
     <>
-      <NoiseMapInput noiseMap={noiseMap} setNoiseMap={setNoiseMap} />
+      <NoiseMapInput setNoiseMap={setNoiseMap} />
       <NoiseMapImage noiseMap={noiseMap} color />
     </>
   );

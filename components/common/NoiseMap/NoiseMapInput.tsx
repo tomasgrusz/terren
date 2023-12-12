@@ -1,63 +1,63 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import styles from "./NoiseMapInput.module.scss";
 
 type NoiseMapInputProps = {
-  noiseMap: number[];
   setNoiseMap: (noise: number[]) => void;
 };
 
-const NoiseMapInput: React.FC<NoiseMapInputProps> = ({
-  noiseMap,
-  setNoiseMap,
-}) => {
-  const [noiseMapImg, setNoiseMapImg] = useState(null);
-  const noiseMapRef = useRef<HTMLCanvasElement>(null);
+const NoiseMapInput: React.FC<NoiseMapInputProps> = ({ setNoiseMap }) => {
+  const [noiseMapImg, setNoiseMapImg] = useState<HTMLImageElement>();
+  const noiseMapRef = useRef<HTMLInputElement>(null);
 
   const fr = new FileReader();
 
   fr.onload = function () {
     const img = new Image();
-    img.src = fr.result;
+    img.src = fr.result?.toString() || "";
+    img.onload = () => {
+      if (
+        (img.width !== img.height || img.width > 256) &&
+        noiseMapRef.current
+      ) {
+        alert(
+          "Invalid noise map size! Make sure the image is square and less than 256x256."
+        );
+        noiseMapRef.current.value = "";
+        return;
+      }
 
-    if (img.width !== img.height) {
-      alert(
-        "Invalid noise map size! Make sure the image is square (e.g. 64x64)."
-      );
-      noiseMapRef.current.value = "";
-      return;
-    }
-
-    setNoiseMapImg(img);
+      setNoiseMapImg(img);
+    };
   };
 
-  const updateImage = (e) => {
-    fr.readAsDataURL(e.target.files[0]);
+  const updateImage = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      fr.readAsDataURL(e.target.files[0]);
+    }
 
     return null;
   };
 
   useEffect(() => {
-    if (!noiseMapImg || !noiseMapRef.current) {
+    if (!noiseMapImg) {
       return;
     }
-    const ctx = noiseMapRef.current?.getContext("2d");
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
     ctx?.drawImage(noiseMapImg, 0, 0);
-    let noise = ctx?.getImageData(
+    const noiseData = ctx?.getImageData(
       0,
       0,
       noiseMapImg.width,
       noiseMapImg.height
     ).data;
-    noise = noise?.filter((value, i) => i % 4 === 0);
-    noise = Array.prototype.slice.call(noise);
-    noise = noise?.map((value) => value / 255);
+    const noise = Array.prototype.slice
+      .call(noiseData)
+      .filter((value, i) => i % 4 === 0)
+      .map((value) => value / 255);
     setNoiseMap(noise);
-  }, [noiseMapRef, noiseMapRef.current, noiseMapImg]);
-
-  useEffect(() => {
-    console.log(noiseMap);
-  }, [noiseMap]);
+  }, [noiseMapImg]);
 
   return (
     <div className={styles.NoiseMapInput}>
@@ -69,8 +69,8 @@ const NoiseMapInput: React.FC<NoiseMapInputProps> = ({
         accept="image/png, image/jpeg"
         multiple={false}
         onChange={updateImage}
+        ref={noiseMapRef}
       ></input>
-      {noiseMapImg && <canvas ref={noiseMapRef} />}
     </div>
   );
 };

@@ -1,7 +1,10 @@
 "use client";
 import { ReactNode, createContext, useState } from "react";
 
-const NoiseMapContext = createContext();
+const NoiseMapContext = createContext<[number[], (val: number[]) => void]>([
+  [],
+  () => null,
+]);
 
 export const NoiseMapProvider = ({ children }: { children: ReactNode }) => {
   const [noiseMap, setNoiseMap] = useState<number[]>([]);
