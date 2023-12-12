@@ -1,5 +1,5 @@
 "use client";
-import { UseFormRegister, useForm } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
 
 import styles from "./Slider.module.scss";
 import { Inputs } from "../Menu/Menu";

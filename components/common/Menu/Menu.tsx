@@ -1,14 +1,11 @@
 "use client";
 import { SubmitHandler, useForm } from "react-hook-form";
-import Slider from "../Slider";
 import styles from "./Menu.module.scss";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import { MdSettings } from "react-icons/md";
-import NoiseMapInput from "../NoiseMap/NoiseMapInput";
 import NoiseMapContext from "../NoiseMap/NoiseMapContext";
-import NoiseMapImage from "../NoiseMap/NoiseMapImage";
 import GenerationFields from "./GenerationFields";
 import ImportFields from "./ImportFields";
 import MenuSegments from "../MenuSegments";
@@ -24,8 +21,8 @@ const Menu = () => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [_noiseMap, _setNoiseMap] = useState<number[]>([]);
-  const [noiseMap, setNoiseMap] = useContext(NoiseMapContext);
+  const [_noiseMap] = useState<number[]>([]);
+  const [, setNoiseMap] = useContext(NoiseMapContext);
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));

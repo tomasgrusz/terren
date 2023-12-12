@@ -3,7 +3,6 @@ import NoiseMapInput from "../NoiseMap/NoiseMapInput";
 import { Inputs } from "./Menu";
 import { useContext } from "react";
 import NoiseMapContext from "../NoiseMap/NoiseMapContext";
-import styles from "./Menu.module.scss";
 import NoiseMapImage from "../NoiseMap/NoiseMapImage";
 
 export type ImportFieldsProps = {
@@ -11,7 +10,7 @@ export type ImportFieldsProps = {
   watch: UseFormWatch<Inputs>;
 };
 
-const ImportFields: React.FC<ImportFieldsProps> = ({ register, watch }) => {
+const ImportFields: React.FC<ImportFieldsProps> = () => {
   const [noiseMap, setNoiseMap] = useContext(NoiseMapContext);
 
   return (

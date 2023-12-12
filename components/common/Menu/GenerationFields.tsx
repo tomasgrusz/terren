@@ -5,7 +5,6 @@ import { Inputs } from "./Menu";
 import { useSearchParams } from "next/navigation";
 import { useContext } from "react";
 import NoiseMapContext from "../NoiseMap/NoiseMapContext";
-import styles from "./Menu.module.scss";
 
 export type GenerationFieldsProps = {
   register: UseFormRegister<Inputs>;
@@ -17,7 +16,7 @@ const GenerationFields: React.FC<GenerationFieldsProps> = ({
   watch,
 }) => {
   const searchParams = useSearchParams();
-  const [noiseMap, setNoiseMap] = useContext(NoiseMapContext);
+  const [noiseMap] = useContext(NoiseMapContext);
 
   return (
     <>
