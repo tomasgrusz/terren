@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       <NoiseMapProvider>
         <Scene />
-        <Menu fallback={<div>Loading...</div>} />
+        <Menu />
       </NoiseMapProvider>
     </main>
   );
