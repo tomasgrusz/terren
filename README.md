@@ -1,4 +1,4 @@
-<h1 align="center" id="title">Cartographer: Procedural Generator &amp; 3D Visualiser for maps</h1>
+<h1 align="center" id="title">Cartographer: Procedural Map Generator &amp; 3D Visualiser</h1>
 
 <p align="center"><img src="https://socialify.git.ci/tomasgrusz/cartographer/image?description=1&amp;font=Inter&amp;language=1&amp;name=1&amp;owner=1&amp;pattern=Solid&amp;theme=Dark" alt="project-image"></p>
 
