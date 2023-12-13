@@ -6,9 +6,13 @@
 
 [cartographer.grusz.dev](cartographer.grusz.dev)
 
+<img src="https://img.shields.io/website-up-down-green-red/https/cartographer.grusz.dev">
+
 <h2>🛡️ License:</h2>
 
 This project is currently NOT licensed under any license, but there is a plan to add one in the future. Stay tuned!
+
+<img src="https://img.shields.io/github/license/tomasgrusz/cartographer.svg">
 
 <h2> Getting Started</h2>
 
