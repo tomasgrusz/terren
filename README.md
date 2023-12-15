@@ -4,7 +4,7 @@
 
 <h2>🚀 Demo</h2>
 
-[terren.grusz.dev](terren.grusz.dev)
+[terren.grusz.dev](https://terren.grusz.dev)
 
 <img src="https://img.shields.io/website-up-down-green-red/https/terren.grusz.dev">
 
