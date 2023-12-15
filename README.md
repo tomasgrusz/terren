@@ -1,6 +1,4 @@
-<h1 align="center" id="title">Terren: Procedural Map Generator &amp; 3D Visualiser</h1>
-
-<p align="center"><img src="https://socialify.git.ci/tomasgrusz/terren/image?description=1&descriptionEditable=Procedural%20Map%20Generator%20%26%203D%20Visualiser&font=Inter&language=1&logo=terren.grusz.dev%2Fterren-logo.png&name=1&owner=1&pattern=Solid&theme=Dark" alt="project-image"></p>
+<p align="center"><img src="https://socialify.git.ci/tomasgrusz/terren/image?description=1&language=1&logo=https%3A%2F%2Fterren.grusz.dev%2Fterren-logo.png&name=1&owner=1&pattern=Solid&theme=Dark" alt="terren" /></p>
 
 <h2>🚀 Demo</h2>
 
