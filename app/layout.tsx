@@ -5,8 +5,8 @@ import "./globals.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Cartographer",
-  description: "Procedural Generator & 3D Visualiser for maps",
+  title: "Terren",
+  description: "Procedural Map Generator & 3D Visualiser",
 };
 
 export default function RootLayout({
