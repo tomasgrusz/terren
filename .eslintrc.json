@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "node": true
     },
     "extends": [
         "eslint:recommended",
@@ -18,6 +19,11 @@
         "react"
     ],
     "rules": {
+        // suppress errors for missing 'import React' in files
+        "react/react-in-jsx-scope": "off",
+        // allow jsx syntax in js files (for next.js project)
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }], //should add ".ts" if typescript project
+        "react/prop-types": "warn",
         "indent": [
             "error",
             2
@@ -33,9 +39,14 @@
         "semi": [
             "error",
             "always"
-        ],
-        "react/react-in-jsx-scope": "off",
-        "react/prop-types": "off",
-        "react/no-unknown-property": "off"
-    }
+        ]
+    },
+    "overrides": [
+        {
+          "files": ["**/components/models/**/*.ts", "**/components/models/**/*.tsx"],
+          "rules": {
+            "react/no-unknown-property": "off"
+          }
+        }
+    ]
 }
