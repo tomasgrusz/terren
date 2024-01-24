@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@react-three/drei": "^9.90.0",
@@ -29,11 +30,17 @@
     "@types/react-dom": "^18",
     "@types/seedrandom": "^3.0.8",
     "@types/three": "^0.159.0",
-    "@typescript-eslint/eslint-plugin": "latest",
-    "@typescript-eslint/parser": "latest",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
-    "eslint-plugin-react": "latest",
+    "eslint-plugin-react": "^7.33.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": "eslint --fix . --ext jsx,js,tsx,ts,d.ts --ignore-pattern node_modules",
+    "components/**/*.{ts,tsx,js}": "tsc --noEmit"
   }
 }
