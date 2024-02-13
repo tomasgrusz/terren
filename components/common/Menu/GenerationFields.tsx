@@ -1,22 +1,12 @@
-import { UseFormRegister, UseFormWatch } from "react-hook-form";
 import NoiseMapImage from "../NoiseMap/NoiseMapImage";
 import Slider from "../Slider";
-import { Inputs } from "./Menu";
-import { useSearchParams } from "next/navigation";
 import { useContext } from "react";
 import NoiseMapContext from "../NoiseMap/NoiseMapContext";
+import SettingsContext from "@/data/settings";
 
-export type GenerationFieldsProps = {
-  register: UseFormRegister<Inputs>;
-  watch: UseFormWatch<Inputs>;
-};
-
-const GenerationFields: React.FC<GenerationFieldsProps> = ({
-  register,
-  watch,
-}) => {
-  const searchParams = useSearchParams();
+const GenerationFields = () => {
   const [noiseMap] = useContext(NoiseMapContext);
+  const {settings, updateSetting} = useContext(SettingsContext);
 
   return (
     <>
@@ -25,28 +15,25 @@ const GenerationFields: React.FC<GenerationFieldsProps> = ({
         max={Number.MAX_SAFE_INTEGER}
         label="Seed"
         id="seed"
-        defaultValue={Number.parseInt(searchParams.get("seed") || "10")}
-        register={register}
-        value={Number.parseInt(watch("seed"))}
+        value={settings.seed}
+        setValue={updateSetting}
       />
       <Slider
         min={1}
         max={128}
         label="Size"
         id="size"
-        defaultValue={Number.parseInt(searchParams.get("size") || "10")}
-        register={register}
-        value={Number.parseInt(watch("size"))}
+        value={settings.size}
+        setValue={updateSetting}
       />
       <Slider
         min={1.0}
         max={5.0}
         step={0.1}
         label="Maximum Height"
-        register={register}
         id="height"
-        defaultValue={Number.parseFloat(searchParams.get("height") || "1.0")}
-        value={Number.parseFloat(watch("height"))}
+        value={settings.height}
+        setValue={updateSetting}
       />
       {noiseMap && <NoiseMapImage noiseMap={noiseMap} color />}
     </>

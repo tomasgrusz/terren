@@ -5,16 +5,16 @@ import staticNoise from "./staticNoise";
 type NoiseOptions = "random" | "perlin" | "simplex";
 
 const noise = (type: NoiseOptions, size: number, seed: number) => {
-  if (type === "random") {
+  switch (type) {
+  case "random":
     return staticNoise(size, seed);
-  }
-  if (type === "perlin") {
+  case "perlin":
     return perlinNoise(size, seed);
-  }
-  if (type === "simplex") {
+  case "simplex":
     return simplexNoise(size, seed);
+  default:
+    return [];
   }
-  return [];
 };
 
 export default noise;

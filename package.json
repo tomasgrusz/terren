@@ -17,7 +17,6 @@
     "perlin-noise-2d": "^1.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.48.2",
     "react-icons": "^4.12.0",
     "sass": "^1.69.5",
     "seedrandom": "^3.0.5",

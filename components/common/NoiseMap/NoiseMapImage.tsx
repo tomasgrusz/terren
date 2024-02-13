@@ -1,4 +1,4 @@
-import noiseToImage from "@/utils/noiseToImage";
+import noiseToImage from "@/utils/noise/noiseToImage";
 import { useEffect, useRef } from "react";
 
 const NoiseMapImage = ({

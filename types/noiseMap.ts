@@ -1,0 +1,1 @@
+export type NoiseMap = number[];

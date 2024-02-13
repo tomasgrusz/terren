@@ -1,4 +1,4 @@
-import hslToRgb from "./hslToRgb";
+import hslToRgb from "../hslToRgb";
 
 const noiseToImage = (noise: number[], color: boolean) => {
   const size = Math.sqrt(noise.length);
