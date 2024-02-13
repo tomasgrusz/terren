@@ -31,6 +31,7 @@ const Scene = () => {
           autoRotate
           minPolarAngle={Math.PI / 4}
           maxPolarAngle={Math.PI / 4}
+          enablePan={false}
         />
       </Canvas>
     </>
