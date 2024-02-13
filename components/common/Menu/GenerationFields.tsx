@@ -6,7 +6,7 @@ import SettingsContext from "@/data/settings";
 
 const GenerationFields = () => {
   const [noiseMap] = useContext(NoiseMapContext);
-  const {settings, updateSetting} = useContext(SettingsContext);
+  const { settings, updateSetting } = useContext(SettingsContext);
 
   return (
     <>

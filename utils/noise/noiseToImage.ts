@@ -14,7 +14,7 @@ const noiseToImage = (noise: number[], color: boolean) => {
       const pos = (y * size + x) * 4; // position in buffer based on x and y
       const noiseValue = noise[y * size + x];
       if (color) {
-        const [r,g,b] = hslToRgb((1 - noiseValue) * (100 / 255), 1, 0.5);
+        const [r, g, b] = hslToRgb((1 - noiseValue) * (100 / 255), 1, 0.5);
         buffer[pos  ] = r; // R value [0, 255]
         buffer[pos+1] = g; // G value
         buffer[pos+2] = b; // B value

@@ -11,7 +11,7 @@ const MapContext = createContext({
 export const MapProvider = ({ children }: { children: ReactNode }) => {
   const [map, setMap] = useState<Map>([]);
 
-  const context = {map, setMap};
+  const context = { map, setMap };
   
   return (
     <MapContext.Provider value={context}>

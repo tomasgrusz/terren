@@ -26,14 +26,14 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
 
   const updateSetting = (key: keyof Settings, val: number) => {
     console.log(settings);
-    setSettings({...settings, [key]: val});
+    setSettings({ ...settings, [key]: val });
   };
 
   useEffect(() => {
     console.log(settings);
-  } , [settings]);
+  }, [settings]);
 
-  const context = {settings, setSettings, updateSetting};
+  const context = { settings, setSettings, updateSetting };
   
   return (
     <SettingsContext.Provider value={context}>

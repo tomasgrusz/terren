@@ -1,1 +1,1 @@
-export {default} from "./MenuSegments";
+export { default } from "./MenuSegments";

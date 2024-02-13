@@ -11,7 +11,7 @@ import noise from "@/utils/noise/noise";
 
 const Scene = () => {
   const [noiseMap, setNoiseMap] = useContext(NoiseMapContext);
-  const {settings} = useContext(SettingsContext);
+  const { settings } = useContext(SettingsContext);
 
   useEffect(() => {
     setNoiseMap(noise("perlin", settings.size, settings.seed));
