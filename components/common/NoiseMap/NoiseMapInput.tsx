@@ -1,6 +1,8 @@
 "use client";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { Label } from "@/components/ui/label";
 import styles from "./NoiseMapInput.module.scss";
+import { Input } from "@/components/ui/input";
 
 type NoiseMapInputProps = {
   setNoiseMap: (noise: number[]) => void;
@@ -60,17 +62,16 @@ const NoiseMapInput: React.FC<NoiseMapInputProps> = ({ setNoiseMap }) => {
   }, [noiseMapImg]);
 
   return (
-    <div className={styles.NoiseMapInput}>
-      <label>{"Noise Map"}</label>
-      <input
+    <div className={`flex flex-col gap-4 ${styles.NoiseMapInput}`}>
+      <Label htmlFor="noiseMap">Noise Map</Label>
+      <Input
         type="file"
         id="noiseMap"
-        name="Noise Map"
         accept="image/png, image/jpeg"
         multiple={false}
         onChange={updateImage}
         ref={noiseMapRef}
-      ></input>
+      />
     </div>
   );
 };
