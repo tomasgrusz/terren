@@ -1,11 +1,7 @@
 .NoiseMapInput {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    gap: 0.25rem;
-    min-width: 300px;
+  min-width: 300px;
 
-    input {
-        margin-top: 4px;
-    }
+  input {
+    margin-top: 4px;
+  }
 }

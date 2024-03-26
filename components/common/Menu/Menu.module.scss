@@ -1,37 +1,23 @@
 .toggle {
-    top: 1rem;
-    right: 1rem;
-    position: fixed;
-    margin-left: auto;
-    font-size: 24px;
-    cursor: pointer;
-    transition: transform 0.25s ease-in-out;
-    width: 24px;
-    height: 24px;
-    z-index: 10;
-    &:hover {
-        color: #ccc;
-    }
-
-    &:hover, &.active {
-        transform: rotate(90deg) !important;
-    }
+  top: 1rem;
+  right: 1rem;
+  position: fixed;
 }
 
 .Menu {
-    background: #1D1E21;
-    height: 100vh !important;
-    position: absolute;
-    top: 0;
-    right: 0;
-    overflow: hidden;
-    padding-top: calc(1rem + 24px);
+  background: #1d1e21;
+  height: 100vh !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  padding-top: calc(1rem + 24px);
 
-    canvas {
-        width: calc(300px - 2rem) !important;
-        height: calc(300px - 2rem) !important;
-        overflow: hidden;
-        margin-inline: auto;
-        display: block;
-    }
+  canvas {
+    width: calc(300px - 2rem) !important;
+    height: calc(300px - 2rem) !important;
+    overflow: hidden;
+    margin-inline: auto;
+    display: block;
+  }
 }

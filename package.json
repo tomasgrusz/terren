@@ -10,17 +10,29 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-slider": "^1.1.2",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tabs": "^1.0.4",
     "@react-three/drei": "^9.90.0",
     "@react-three/fiber": "^8.15.12",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
     "framer-motion": "^10.16.15",
+    "lucide-react": "^0.363.0",
     "next": "14.0.3",
     "perlin-noise-2d": "^1.0.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0",
+    "react-resizable-panels": "^2.0.16",
     "sass": "^1.69.5",
     "seedrandom": "^3.0.5",
     "simplex-noise": "^4.0.1",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7",
     "three": "^0.159.0"
   },
   "devDependencies": {
@@ -35,6 +47,7 @@
     "eslint-config-next": "14.0.3",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-unused-imports": "^3.1.0",
+    "husky": "^9.0.11",
     "typescript": "^5"
   },
   "lint-staged": {
