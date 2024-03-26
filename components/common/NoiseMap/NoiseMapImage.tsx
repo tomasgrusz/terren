@@ -24,7 +24,7 @@ const NoiseMapImage = ({
     if (imgData) {
       ctx?.putImageData(imgData, 0, 0);
     }
-  }, [noiseMapRef, noiseMapRef.current]);
+  }, [noiseMapRef, noiseMapRef.current, noiseMap]);
 
   return <canvas ref={noiseMapRef} />;
 };

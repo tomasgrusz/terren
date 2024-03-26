@@ -1,0 +1,19 @@
+.Maps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 1rem;
+  gap: 0.5rem;
+  height: 100%;
+
+  canvas {
+    min-width: 128px !important;
+    min-height: 128px !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    display: block;
+  }
+}

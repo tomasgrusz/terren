@@ -12,6 +12,7 @@
   right: 0;
   overflow: hidden;
   padding-top: calc(1rem + 24px);
+  padding-inline: 2rem;
 
   canvas {
     width: calc(300px - 2rem) !important;

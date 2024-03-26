@@ -1,4 +1,3 @@
-import NoiseMapImage from "../NoiseMap/NoiseMapImage";
 // import Slider from "../Slider";
 import { useContext } from "react";
 import NoiseMapContext from "../NoiseMap/NoiseMapContext";
@@ -45,7 +44,6 @@ const GenerationFields = () => {
         />
         <Label>{settings.height}</Label>
       </div>
-      {noiseMap && <NoiseMapImage noiseMap={noiseMap} color />}
     </div>
   );
 };
