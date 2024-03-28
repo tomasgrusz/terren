@@ -24,9 +24,9 @@ const NoiseMapImage = ({
     if (imgData) {
       ctx?.putImageData(imgData, 0, 0);
     }
-  }, [noiseMapRef, noiseMapRef.current]);
+  }, [noiseMapRef, noiseMapRef.current, noiseMap]);
 
-  return <canvas ref={noiseMapRef} />;
+  return <canvas ref={noiseMapRef} className="rounded-md"/>;
 };
 
 export default NoiseMapImage;

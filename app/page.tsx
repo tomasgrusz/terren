@@ -1,20 +1,40 @@
+import Maps from "@/components/common/Maps/Maps";
 import Menu from "@/components/common/Menu";
-import { NoiseMapProvider } from "@/components/common/NoiseMap/NoiseMapContext";
 import Scene from "@/components/models/Scene";
-import { MapProvider } from "@/data/map-context";
-import { SettingsProvider } from "@/data/settings";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
+import { TerrainContextProvider } from "@/data/terrain";
 
 export default function Home() {
   return (
-    <main>
-      <NoiseMapProvider>
-        <SettingsProvider>
-          <MapProvider>
-            <Scene />
+    <main className="h-lvh">
+      <TerrainContextProvider>
+        <ResizablePanelGroup direction="horizontal">
+          <ResizablePanel defaultSize={70}>
+            <ResizablePanelGroup direction="vertical">
+              <ResizablePanel defaultSize={70}>
+                <Scene />
+              </ResizablePanel>
+              <ResizableHandle />
+              <ResizablePanel
+                defaultSize={30}
+                minSize={5}
+                maxSize={30}
+                className="overflow-x-auto"
+              >
+                <Maps />
+              </ResizablePanel>
+            </ResizablePanelGroup>
+          </ResizablePanel>
+          <ResizableHandle />
+          <ResizablePanel defaultSize={20} minSize={20} maxSize={50}>
             <Menu />
-          </MapProvider>
-        </SettingsProvider>
-      </NoiseMapProvider>
+          </ResizablePanel>
+        </ResizablePanelGroup>
+      </TerrainContextProvider>
     </main>
   );
 }
