@@ -1,13 +1,13 @@
 import NoiseMapInput from "../NoiseMap/NoiseMapInput";
 import { useContext } from "react";
-import NoiseMapContext from "../NoiseMap/NoiseMapContext";
+import TerrainContext from "@/data/terrain";
 
 const ImportFields = () => {
-  const [noiseMap, setNoiseMap] = useContext(NoiseMapContext);
+  const { setMap } = useContext(TerrainContext);
 
   return (
     <div className="flex flex-col gap-4">
-      <NoiseMapInput setNoiseMap={setNoiseMap} />
+      <NoiseMapInput setNoiseMap={setMap} />
     </div>
   );
 };

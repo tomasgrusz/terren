@@ -4,23 +4,16 @@ import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 
 import styles from "./Scene.module.scss";
 import TileMap from "../Tile/TileMap";
-import NoiseMapContext from "@/components/common/NoiseMap/NoiseMapContext";
-import { useContext, useEffect } from "react";
-import SettingsContext from "@/data/settings";
-import noise from "@/utils/noise/noise";
+import { useContext } from "react";
+import TerrainContext from "@/data/terrain";
 
 const Scene = () => {
-  const [noiseMap, setNoiseMap] = useContext(NoiseMapContext);
-  const { settings } = useContext(SettingsContext);
-
-  useEffect(() => {
-    setNoiseMap(noise("perlin", settings.size, settings.seed));
-  }, [settings]);
+  const { settings, map } = useContext(TerrainContext);
 
   return (
     <>
       <Canvas className={styles.Canvas}>
-        <TileMap tiles={noiseMap} size={10} maxHeight={settings.height} />
+        <TileMap tiles={map} size={10} maxHeight={settings.height} />
         <ambientLight intensity={1} />
         <spotLight intensity={20} position={[10, 0, 10]} />
         <spotLight intensity={20} position={[-10, 0, -10]} />
