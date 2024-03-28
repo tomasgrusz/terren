@@ -1,12 +1,10 @@
-// import Slider from "../Slider";
+"use client";
 import { useContext } from "react";
-import NoiseMapContext from "../NoiseMap/NoiseMapContext";
 import SettingsContext from "@/data/settings";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 
 const GenerationFields = () => {
-  const [noiseMap] = useContext(NoiseMapContext);
   const { settings, updateSetting } = useContext(SettingsContext);
 
   return (
@@ -14,7 +12,7 @@ const GenerationFields = () => {
       <div className="flex flex-col gap-4">
         <Label>Seed</Label>
         <Slider
-          defaultValue={[1]}
+          defaultValue={[settings.seed]}
           min={1}
           max={Number.MAX_SAFE_INTEGER}
           step={1}
@@ -25,7 +23,7 @@ const GenerationFields = () => {
       <div className="flex flex-col gap-4">
         <Label>Size</Label>
         <Slider
-          defaultValue={[10]}
+          defaultValue={[settings.size]}
           min={1}
           max={128}
           step={1}
@@ -36,7 +34,7 @@ const GenerationFields = () => {
       <div className="flex flex-col gap-4">
         <Label>Maximum Height</Label>
         <Slider
-          defaultValue={[1]}
+          defaultValue={[settings.height]}
           min={1.0}
           max={5.0}
           step={0.1}

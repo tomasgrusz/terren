@@ -26,7 +26,7 @@ const NoiseMapImage = ({
     }
   }, [noiseMapRef, noiseMapRef.current, noiseMap]);
 
-  return <canvas ref={noiseMapRef} />;
+  return <canvas ref={noiseMapRef} className="rounded-md"/>;
 };
 
 export default NoiseMapImage;

@@ -19,9 +19,9 @@ const SettingsContext = createContext({
 
 export const SettingsProvider = ({ children }: { children: ReactNode }) => {
   const [settings, setSettings] = useState<Settings>({
-    size: 10,
-    height: 1.0,
-    seed: 1,
+    size: 16,
+    height: 2.5,
+    seed: Math.round(Math.random() * Number.MAX_SAFE_INTEGER),
   });
 
   const updateSetting = (key: keyof Settings, val: number) => {

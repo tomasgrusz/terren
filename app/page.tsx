@@ -23,7 +23,7 @@ export default function Home() {
                     <Scene />
                   </ResizablePanel>
                   <ResizableHandle />
-                  <ResizablePanel defaultSize={30} minSize={5} maxSize={30}>
+                  <ResizablePanel defaultSize={30} minSize={5} maxSize={30} className="overflow-x-auto">
                     <Maps />
                   </ResizablePanel>
                 </ResizablePanelGroup>
