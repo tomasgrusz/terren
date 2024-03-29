@@ -41,9 +41,18 @@ bun dev
 
 5. Open [http://localhost:3000](http://localhost:3000) within your browser
 
-✅
 
 <h2>🫂 Contributing</h2>
+
+We welcome contributions from the community! If you have a tool, framework, library, or resource that you believe would be valuable to others, please follow these steps to contribute:
+
+	1.	Fork the repository
+	2.	Create a new branch (git checkout -b new-feature)
+	3.	Add your contribution
+	4.	Commit your changes (git commit -am 'Add new tool')
+	5.	Push to the branch (git push origin new-feature)
+	6.	Create a new Pull Request
+
 
 <h2>🛡️ License</h2>
 
