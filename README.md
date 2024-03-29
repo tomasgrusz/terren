@@ -6,13 +6,9 @@
 
 <img src="https://img.shields.io/website-up-down-green-red/https/terren.grusz.dev">
 
-<h2>🛡️ License:</h2>
+<h2>🛠️ Tech Stack</h2>
 
-This project is currently NOT licensed under any license, but there is a plan to add one in the future. Stay tuned!
-
-<img src="https://img.shields.io/github/license/tomasgrusz/terren.svg">
-
-<h2> Getting Started</h2>
+<h2>▶️ Running Locally</h2>
 
 First, run the development server:
 
@@ -27,3 +23,11 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+<h2>🫂 Contributing</h2>
+
+<h2>🛡️ License</h2>
+
+This project is currently NOT licensed under any license, but there is a plan to add one in the future. Stay tuned!
+
+<img src="https://img.shields.io/github/license/tomasgrusz/terren.svg">
