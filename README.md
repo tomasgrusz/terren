@@ -44,7 +44,7 @@ bun dev
 
 <h2>🫂 Contributing</h2>
 
-We welcome contributions from the community! If you have a tool, framework, library, or resource that you believe would be valuable to others, please follow these steps to contribute:
+All contributions from the community are welcome! If you have a tool, library, or resource that you believe would be valuable to others, please follow these steps to contribute:
 
 1.	Fork the repository
 2.	Create a new branch `git checkout -b new-feature`
