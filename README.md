@@ -7,6 +7,7 @@
 <img src="https://img.shields.io/website-up-down-green-red/https/terren.grusz.dev">
 
 <h2>🛠️ Tech Stack</h2>
+
 **Framework:** Next.js, React, TypeScript
 
 **UI:** @shadcn-ui, TailwindCSS, SCSS
