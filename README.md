@@ -10,9 +10,9 @@
 
 **Framework:** Next.js, React, TypeScript
 
-**UI:** @shadcn-ui, TailwindCSS, SCSS
+**UI:** @shadcn-ui, TailwindCSS, SCSS, Framer Motion
 
-**3D Rendering:** Three.js, react-three-fiber
+**3D Rendering:** Three.js, @react-three/fiber
 
 <h2>▶️ Running Locally</h2>
 
