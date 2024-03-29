@@ -10,19 +10,38 @@
 
 <h2>▶️ Running Locally</h2>
 
-First, run the development server:
+1. Clone the repository
+```bash
+git clone https://github.com/tomasgrusz/terren.git
+```
+
+2. Navigate to project folder
+```bash
+cd terren
+```
+
+3. Install all dependencies
+```bash
+npm install
+# or
+yarn install
+# or
+bun install
+```
+
+4. Run the development environment
 
 ```bash
 npm run dev
 # or
 yarn dev
 # or
-pnpm dev
-# or
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) within your browser
+
+✅
 
 <h2>🫂 Contributing</h2>
 
