@@ -1,3 +1,7 @@
+<h1>🏔️ Terren 🗺️</h1>
+
+<h2>📋 Description</h2>
+
 <p align="center"><img src="https://socialify.git.ci/tomasgrusz/terren/image?description=1&language=1&logo=https%3A%2F%2Fterren.grusz.dev%2Fterren-logo.png&name=1&owner=1&pattern=Solid&theme=Dark" alt="terren" /></p>
 
 <h2>🚀 Demo</h2>
