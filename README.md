@@ -2,7 +2,12 @@
 
 <h2>📋 Description</h2>
 
-<p align="center"><img src="https://socialify.git.ci/tomasgrusz/terren/image?description=1&language=1&logo=https%3A%2F%2Fterren.grusz.dev%2Fterren-logo.png&name=1&owner=1&pattern=Solid&theme=Dark" alt="terren" /></p>
+Terren is an open-source, browser-based voxel terrain map generator and 3D visualiser. 
+Terren uses procedural generation using rules and noise maps to create visually pleasing voxel terrains. 
+You can also import your own noise maps to generate unique terrains.
+Easily configure your settings and view the resulting maps that create a final 3D render of terrain environment.
+
+Export your creations as images, .glb models, or even json configurations for your further development. *(coming soon)*
 
 <h2>🚀 Demo</h2>
 
