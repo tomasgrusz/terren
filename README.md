@@ -78,7 +78,7 @@ All contributions from the community are welcome! If you have a tool, library, o
 
 Terren is licensed under the GNU General Public License v3.0. See the `LICENSE` file for details.
 
-<img src="https://img.shields.io/github/license/tomasgrusz/terren.svg">
+<img src="https://img.shields.io/github/license/tomasgrusz/terren">
 
 <h2>👍 Feedback</h2>
 
