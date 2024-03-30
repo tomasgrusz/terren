@@ -76,6 +76,12 @@ All contributions from the community are welcome! If you have a tool, library, o
 
 <h2>🛡️ License</h2>
 
-This project is currently NOT licensed under any license, but there is a plan to add one in the future. Stay tuned!
+Terren is licensed under the GNU General Public License v3.0. See the `LICENSE` file for details.
 
 <img src="https://img.shields.io/github/license/tomasgrusz/terren.svg">
+
+<h2>👍 Feedback</h2>
+
+Have questions or feedback? Create a Github discussion or drop us an email at terren@grusz.dev.
+
+Happy mapping! 🎨🌟
