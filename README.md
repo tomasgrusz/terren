@@ -1,8 +1,8 @@
 <h1>🏔️ Terren 🗺️</h1>
 
-<h2>📋 Description</h2>
-
 Welcome to Terren, an innovative open-source project that empowers voxel terrain generation and visualization right from your browser. 🌍
+
+<h2>📋 Description</h2>
 
 Terren harnesses the power of procedural generation, combining rules and noise maps to craft unique voxel terrains. 
 Whether you’re a seasoned developer, a creative enthusiast, or simply curious about the art of world-building, Terren provides a user-friendly platform to unleash your imagination.
