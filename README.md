@@ -82,6 +82,6 @@ Terren is licensed under the GNU General Public License v3.0. See the `LICENSE` 
 
 <h2>👍 Feedback</h2>
 
-Have questions or feedback? Create a Github discussion or drop us an email at terren@grusz.dev.
+Have questions or feedback? Create a [Github Discussion](https://github.com/tomasgrusz/terren/discussions/categories/general) or drop us an email at terren@grusz.dev.
 
 Happy mapping! 🎨🌟
