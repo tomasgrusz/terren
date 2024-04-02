@@ -1,4 +1,4 @@
-import noiseToImage from "@/utils/noise/noiseToImage";
+import noiseToImage from "@/utils/noiseToImage";
 import { useEffect, useRef } from "react";
 
 const NoiseMapImage = ({
@@ -26,7 +26,7 @@ const NoiseMapImage = ({
     }
   }, [noiseMapRef, noiseMapRef.current, noiseMap]);
 
-  return <canvas ref={noiseMapRef} className="rounded-md"/>;
+  return <canvas ref={noiseMapRef} className="rounded-md" />;
 };
 
 export default NoiseMapImage;

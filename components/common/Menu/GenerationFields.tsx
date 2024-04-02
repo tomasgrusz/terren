@@ -3,6 +3,13 @@ import { useContext } from "react";
 import TerrainContext from "@/data/terrain";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { BsQuestion } from "react-icons/bs";
 
 const GenerationFields = () => {
   const { settings, updateSetting } = useContext(TerrainContext);
@@ -41,6 +48,32 @@ const GenerationFields = () => {
           onValueChange={(value) => updateSetting("height", value[0])}
         />
         <Label>{settings.height || 0}</Label>
+      </div>
+      <div className="flex flex-col gap-4">
+        <TooltipProvider delayDuration={300}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Label className="cursor-help">
+                Perlin Octaves
+                <BsQuestion className="inline" />
+              </Label>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>
+                More octaves lead to higher variation/details but lower
+                performance.
+              </p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <Slider
+          defaultValue={[1]}
+          min={1}
+          max={5}
+          step={1}
+          onValueChange={(value) => updateSetting("octaves", value[0])}
+        />
+        <Label>{settings.octaves || 0}</Label>
       </div>
     </div>
   );
