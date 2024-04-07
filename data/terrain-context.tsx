@@ -2,6 +2,8 @@
 import { ReactNode, createContext, useEffect, useState } from "react";
 import { Map } from "@/types/map";
 import usePerlin, { Octaves } from "@/hooks/usePerlin";
+import { Spline } from "@/types/spline";
+import { spline as getSpline } from "@/utils/spline";
 
 // settings for the terrain
 export type TerrainSettings = {
@@ -9,6 +11,7 @@ export type TerrainSettings = {
   height: number;
   seed: number;
   octaves: Octaves;
+  spline: Spline;
 };
 
 // default settings for the terrain
@@ -17,6 +20,7 @@ const defaultSettings: TerrainSettings = {
   height: 2.5,
   seed: 1,
   octaves: 1,
+  spline: [],
 };
 
 const MAX_MAP_SIZE = 128;
@@ -51,7 +55,9 @@ export const TerrainContextProvider = ({
 
   // whenever the settings change, update the map
   useEffect(() => {
-    setMap(getValues(settings.size));
+    const perlin = getValues(settings.size);
+    const spline = getSpline(perlin, settings.spline);
+    setMap(spline);
   }, [settings]);
 
   return (

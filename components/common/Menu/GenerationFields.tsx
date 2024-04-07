@@ -1,6 +1,6 @@
 "use client";
 import { useContext } from "react";
-import TerrainContext from "@/data/terrain";
+import TerrainContext from "@/data/terrain-context";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import {

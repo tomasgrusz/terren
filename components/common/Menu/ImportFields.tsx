@@ -1,6 +1,6 @@
 import NoiseMapInput from "../NoiseMap/NoiseMapInput";
 import { useContext } from "react";
-import TerrainContext from "@/data/terrain";
+import TerrainContext from "@/data/terrain-context";
 
 const ImportFields = () => {
   const { setMap } = useContext(TerrainContext);
