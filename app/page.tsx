@@ -6,14 +6,12 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { SplineContextProvider } from "@/data/spline-context";
 import { TerrainContextProvider } from "@/data/terrain-context";
 
 export default function Home() {
   return (
     <main className="h-lvh">
       <TerrainContextProvider>
-        <SplineContextProvider>
           <ResizablePanelGroup direction="horizontal">
             <ResizablePanel defaultSize={70}>
               <ResizablePanelGroup direction="vertical">
@@ -36,7 +34,6 @@ export default function Home() {
               <Menu />
             </ResizablePanel>
           </ResizablePanelGroup>
-        </SplineContextProvider>
       </TerrainContextProvider>
     </main>
   );
