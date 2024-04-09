@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { BsQuestion } from "react-icons/bs";
+import SplineFields from "./SplineFields";
 
 const GenerationFields = () => {
   const { settings, updateSetting } = useContext(TerrainContext);
@@ -75,6 +76,7 @@ const GenerationFields = () => {
         />
         <Label>{settings.octaves || 0}</Label>
       </div>
+      <SplineFields />
     </div>
   );
 };

@@ -28,7 +28,7 @@ const MAX_MAP_SIZE = 128;
 const TerrainContext = createContext({
   settings: defaultSettings,
   setSettings: (val: TerrainSettings) => null as unknown as void,
-  updateSetting: (key: keyof TerrainSettings, val: number) =>
+  updateSetting: (key: keyof TerrainSettings, val: any) =>
     null as unknown as void,
   map: [] as Map,
   setMap: (val: Map) => null as unknown as void,
