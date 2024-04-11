@@ -26,7 +26,7 @@ const usePerlin = (seed: number, maxSize: number, octaves?: Octaves) => {
   };
 
   const getValues = (size: number, frequency?: number) => {
-    const perlinArray = [];
+    let perlinArray = [];
 
     for (let i = 0; i < size; i++) {
       for (let j = 0; j < size; j++) {
@@ -54,6 +54,9 @@ const usePerlin = (seed: number, maxSize: number, octaves?: Octaves) => {
         perlinArray.push(d);
       }
     }
+    const max = Math.max(...perlinArray);
+    const min = Math.min(...perlinArray);
+    perlinArray = perlinArray.map((value) => (value - min) / (max - min));
 
     return perlinArray;
   };

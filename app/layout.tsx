@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { SettingsContextProvider } from "@/data/settings-context";
+import { MapContextProvider } from "@/data/map-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,7 +42,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <SettingsContextProvider>
+          <MapContextProvider>{children}</MapContextProvider>
+        </SettingsContextProvider>
+      </body>
     </html>
   );
 }

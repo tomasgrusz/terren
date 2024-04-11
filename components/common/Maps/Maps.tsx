@@ -4,23 +4,46 @@ import NoiseMapImage from "../NoiseMap/NoiseMapImage";
 import styles from "./Maps.module.scss";
 import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
-import TerrainContext from "@/data/terrain-context";
+import MapContext from "@/data/map-context";
+import SettingsContext from "@/data/settings-context";
 
 const Maps = () => {
-  const { map: terrainMap } = useContext(TerrainContext);
+  const { continentalness, erosion, undulation } = useContext(MapContext);
+  const { updateSetting } = useContext(SettingsContext);
   return (
     <div className={styles.Maps}>
       <div>
         <Label>Continentalness</Label>
-        {terrainMap && <NoiseMapImage noiseMap={terrainMap} color />}
+        {continentalness && (
+          <div
+            className="w-full"
+            onClick={() => updateSetting("currentEdit", "continentalness")}
+          >
+            <NoiseMapImage noiseMap={continentalness.map} color />
+          </div>
+        )}
       </div>
       <div>
         <Label>Erosion</Label>
-        <Skeleton className={styles.skeleton} />
+        {erosion && (
+          <div
+            className="w-full"
+            onClick={() => updateSetting("currentEdit", "erosion")}
+          >
+            <NoiseMapImage noiseMap={erosion.map} color />
+          </div>
+        )}
       </div>
       <div>
         <Label>Surface Undulation</Label>
-        <Skeleton className={styles.skeleton} />
+        {undulation && (
+          <div
+            className="w-full"
+            onClick={() => updateSetting("currentEdit", "undulation")}
+          >
+            <NoiseMapImage noiseMap={undulation.map} color />
+          </div>
+        )}
       </div>
       <div>
         <Label>Temperature</Label>

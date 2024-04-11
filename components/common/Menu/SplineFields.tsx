@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
 
-import TerrainContext from "@/data/terrain-context";
 import { SplineSegment } from "@/types/spline";
-import { useContext } from "react";
 import SplineSegmentField from "./SplineSegment";
 import {
   Tooltip,
@@ -12,9 +10,14 @@ import {
 } from "@/components/ui/tooltip";
 import { Label } from "@/components/ui/label";
 import { BsQuestion, BsPlus } from "react-icons/bs";
+import useTerrain from "@/hooks/useTerrain";
 
-const SplineFields = () => {
-  const { settings, updateSetting } = useContext(TerrainContext);
+type SplineFieldsProps = {
+  terrain: ReturnType<typeof useTerrain>;
+};
+
+const SplineFields: React.FC<SplineFieldsProps> = ({ terrain }) => {
+  const { settings, updateSetting } = terrain;
 
   const addSplineSegment = () => {
     updateSetting("spline", [
