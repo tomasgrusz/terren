@@ -14,7 +14,7 @@ const defaultSettings: Settings = {
   size: 16,
   height: 2.5,
   seed: 1,
-  currentEdit: null,
+  currentEdit: "continentalness",
 };
 
 const SettingsContext = createContext({
