@@ -33,7 +33,7 @@ const SplineSegment: React.FC<SplineSegmentProps> = ({
     ...segment.height,
   ]);
   const [splineTransition, setSplineTransition] = useState<SplineTransition>(
-    segment.transition
+    segment.transition,
   );
   const [isValid, setIsValid] = useState(true);
 
@@ -44,7 +44,7 @@ const SplineSegment: React.FC<SplineSegmentProps> = ({
         height: splineHeight,
         transition: splineTransition,
       },
-      id
+      id,
     );
     setIsValid(result);
   }, [splinePoints, splineHeight, splineTransition]);

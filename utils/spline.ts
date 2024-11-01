@@ -60,7 +60,7 @@ const SplineEquation = {
 const splinePoint = (value: number, spline: Spline) => {
   const segment = spline.find(
     (segment) =>
-      value >= segment.splinePoint[0] && value < segment.splinePoint[1]
+      value >= segment.splinePoint[0] && value < segment.splinePoint[1],
   );
 
   if (!segment) {
@@ -70,7 +70,7 @@ const splinePoint = (value: number, spline: Spline) => {
   return SplineEquation[segment?.transition](
     segment.splinePoint,
     segment.height,
-    value
+    value,
   );
 };
 

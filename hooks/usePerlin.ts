@@ -10,7 +10,7 @@ const createGrids = (maxSize: number, octaves: Octaves, seed: number) => {
     return [createVectorField(maxSize, random)];
   } else {
     return Array.from({ length: octaves }, (_, i) =>
-      createVectorField(maxSize, alea((seed + i).toString()))
+      createVectorField(maxSize, alea((seed + i).toString())),
     );
   }
 };
@@ -38,10 +38,10 @@ const usePerlin = (seed: number, maxSize: number, octaves?: Octaves) => {
               // double the frequency for each octave
               j * _frequency * 2 ** index,
               i * _frequency * 2 ** index,
-              g
+              g,
             ) +
               1.0) /
-            2
+            2,
         );
         let d = 0;
         // add the results of each octave, but halve the amplitude for each consecutive octave
