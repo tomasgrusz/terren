@@ -14,19 +14,17 @@ const Scene = () => {
   const { map } = useContext(MapContext);
 
   return (
-    <>
-      <Canvas className={styles.Canvas} shadows>
-        <TileMesh tiles={map} size={10} maxHeight={height} />
-        <Light />
-        <PerspectiveCamera makeDefault position={[0, 20, 0]} />
-        <OrbitControls
-          autoRotate
-          minPolarAngle={Math.PI / 4}
-          maxPolarAngle={Math.PI / 4}
-          enablePan={false}
-        />
-      </Canvas>
-    </>
+    <Canvas className={styles.Canvas} shadows>
+      <TileMesh tiles={map} size={10} maxHeight={height} />
+      <Light />
+      <PerspectiveCamera makeDefault position={[0, 20, 0]} />
+      <OrbitControls
+        autoRotate
+        minPolarAngle={Math.PI / 4}
+        maxPolarAngle={Math.PI / 4}
+        enablePan={false}
+      />
+    </Canvas>
   );
 };
 

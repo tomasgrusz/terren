@@ -6,7 +6,9 @@ import {
   NormalBufferAttributes,
 } from "three";
 import { calculateMesh } from "./utils";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useThree } from "@react-three/fiber";
+import SceneContext from "@/data/scene-context";
 
 type TileMap = {
   tiles: number[];
@@ -21,6 +23,27 @@ const TileMap: React.FC<TileMap> = ({
 }) => {
   const mapSize = Math.sqrt(tiles.length);
   const width = size / Math.sqrt(tiles.length);
+
+  const { gl, scene, camera } = useThree();
+  const { setGL, setScene, setCamera } = useContext(SceneContext);
+
+  useEffect(() => {
+    if (gl) {
+      setGL(gl);
+    }
+  }, [gl]);
+
+  useEffect(() => {
+    if (scene) {
+      setScene(scene);
+    }
+  }, [scene]);
+
+  useEffect(() => {
+    if (camera) {
+      setCamera(camera);
+    }
+  }, [camera]);
 
   const [mesh, updateMesh] = useState<
     [BufferGeometry<NormalBufferAttributes>, MeshStandardMaterial] | null
