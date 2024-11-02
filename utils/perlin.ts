@@ -12,7 +12,7 @@ const dotProductGrid = (
   y: number,
   cellX: number,
   cellY: number,
-  grid: Vector[][]
+  grid: Vector[][],
 ) => {
   const vector: Vector = grid[cellY][cellX];
   const distVector: Vector = [x - cellX, y - cellY];
@@ -32,7 +32,7 @@ export const createVectorField = (size: number, random: PRNG) => {
     .map(() =>
       Array(size + 1)
         .fill(0)
-        .map(() => createRandomVector(random))
+        .map(() => createRandomVector(random)),
     );
 };
 
@@ -50,6 +50,6 @@ export const perlin = (x: number, y: number, grid: Vector[][]) => {
   return interpolation(
     interpolation(corners[0], corners[1], x - x0),
     interpolation(corners[2], corners[3], x - x0),
-    y - y0
+    y - y0,
   );
 };

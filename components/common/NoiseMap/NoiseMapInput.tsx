@@ -23,7 +23,7 @@ const NoiseMapInput: React.FC<NoiseMapInputProps> = ({ setNoiseMap }) => {
         noiseMapRef.current
       ) {
         alert(
-          "Invalid noise map size! Make sure the image is square and less than 256x256."
+          "Invalid noise map size! Make sure the image is square and less than 256x256.",
         );
         noiseMapRef.current.value = "";
         return;
@@ -52,7 +52,7 @@ const NoiseMapInput: React.FC<NoiseMapInputProps> = ({ setNoiseMap }) => {
       0,
       0,
       noiseMapImg.width,
-      noiseMapImg.height
+      noiseMapImg.height,
     ).data;
     const noise = Array.prototype.slice
       .call(noiseData)

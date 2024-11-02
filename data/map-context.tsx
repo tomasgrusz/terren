@@ -15,7 +15,7 @@ const MapContext = createContext({
 export const MapContextProvider = ({ children }: { children: ReactNode }) => {
   const [map, setMap] = useState<Map>([]);
   const continentalness = useTerrain(
-    terrain.continentalness as TerrainSettings
+    terrain.continentalness as TerrainSettings,
   );
   const erosion = useTerrain(terrain.erosion as TerrainSettings);
   const undulation = useTerrain(terrain.undulation as TerrainSettings);
@@ -23,8 +23,8 @@ export const MapContextProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     setMap(
       continentalness.map.map(
-        (val, i) => val * erosion.map[i] * undulation.map[i]
-      )
+        (val, i) => val * erosion.map[i] * undulation.map[i],
+      ),
     );
   }, [continentalness.map, erosion.map, undulation.map]);
 
