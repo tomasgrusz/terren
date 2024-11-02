@@ -57,7 +57,7 @@ const SplineEquation = {
   (splinePoint: SplinePoint, height: HeightRange, value: number) => number
 >;
 
-const splinePoint = (value: number, spline: Spline) => {
+export const splinePoint = (value: number, spline: Spline) => {
   const segment = spline.find(
     (segment) =>
       value >= segment.splinePoint[0] && value < segment.splinePoint[1],

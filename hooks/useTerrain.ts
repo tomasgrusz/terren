@@ -15,7 +15,7 @@ export type TerrainSettings = {
 
 const MAX_MAP_SIZE = 128;
 
-const useTerrain = (defaultSettings: TerrainSettings) => {
+const useTerrain = (defaultSettings: TerrainSettings, seedIndex: number) => {
   const { seed, size } = useContext(SettingsContext);
   const [settings, setSettings] = useState<TerrainSettings>(defaultSettings);
   const updateSetting = (key: keyof TerrainSettings, val: any) => {
@@ -23,7 +23,7 @@ const useTerrain = (defaultSettings: TerrainSettings) => {
   };
   const [map, setMap] = useState<Map>([]);
 
-  const { getValues } = usePerlin(seed, MAX_MAP_SIZE, settings.octaves);
+  const { getValues } = usePerlin(seed + seedIndex, MAX_MAP_SIZE, settings.octaves);
 
   // whenever the settings change, update the map
   useEffect(() => {

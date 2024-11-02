@@ -1,17 +1,18 @@
-import { WATER_COLOR } from "@/data/biomes";
+import { WATER_COLOR, WATER_LEVEL } from "@/data/biomes";
 import { Tile, TileMesh } from "@/data/mesh-context";
 import { Color } from "three";
 
-const calculateTileVertices = (tile: Tile, tileIndex: number, mapSize: number, tileSize: number, maxHeight: number, waterLevel: number): number[] => {
+const calculateTileVertices = (tile: Tile, tileIndex: number, mapSize: number, tileSize: number, maxHeight: number): number[] => {
   const row = Math.floor(tileIndex / mapSize);
   const column = tileIndex % mapSize;
-  const height = !tile.water ? tile.value * maxHeight : waterLevel * maxHeight;
-  const vertix1 = [row * tileSize, height, column * tileSize];
-  const vertix2 = [row * tileSize + tileSize, height, column * tileSize];
-  const vertix3 = [row * tileSize, height, column * tileSize + tileSize];
+  const height = tile.biome !== "water" ? tile.value * maxHeight : WATER_LEVEL * maxHeight;
+  const biomeHeight = height * maxHeight;
+  const vertix1 = [row * tileSize, biomeHeight, column * tileSize];
+  const vertix2 = [row * tileSize + tileSize, biomeHeight, column * tileSize];
+  const vertix3 = [row * tileSize, biomeHeight, column * tileSize + tileSize];
   const vertix4 = [
     row * tileSize + tileSize,
-    height,
+    biomeHeight,
     column * tileSize + tileSize,
   ];
   return [vertix1, vertix2, vertix3, vertix4].flat(1);
@@ -123,12 +124,12 @@ const calculateTileIndices = (tileIndex: number, mapSize: number): number[] => {
   ].flat(1);
 };
 
-const calculateTileColors = (tile: Tile, waterLevel: number): number[] => {
+const calculateTileColors = (tile: Tile): number[] => {
   let _color = new Color();
   if (tile.water) {
     _color = WATER_COLOR;
   } else {
-    _color.setHSL((1 + waterLevel - tile.value) * 0.35, 1, 0.5);
+    _color.setHSL((1 + WATER_LEVEL - tile.value) * 0.35, 1, 0.5);
   }
   return Array.from({ length: 4 }, () => [
     _color.r,
@@ -137,17 +138,17 @@ const calculateTileColors = (tile: Tile, waterLevel: number): number[] => {
   ]).flat(1);
 };
 
-export const calculateMesh = (tiles: TileMesh, mapSize: number, tileSize: number, maxHeight: number, waterLevel: number): [number[], number[], number[], number[]] => {
+export const calculateMesh = (tiles: TileMesh, mapSize: number, tileSize: number, maxHeight: number): [number[], number[], number[], number[]] => {
   const _vertices: number[][] = [];
   const _baseVertices: number[][] = [];
   const _indices: number[][] = [];
   const _colors: number[][] = [];
 
   tiles.forEach((tile, i) => {
-    _vertices.push(calculateTileVertices(tile, i, mapSize, tileSize, maxHeight, waterLevel));
+    _vertices.push(calculateTileVertices(tile, i, mapSize, tileSize, maxHeight));
     _baseVertices.push(calculateTileBedVertices(i, mapSize, tileSize));
     _indices.push(calculateTileIndices(i, mapSize));
-    _colors.push(calculateTileColors(tile, waterLevel));
+    _colors.push(calculateTileColors(tile));
   });
 
   const vertices = _vertices.flat(1);

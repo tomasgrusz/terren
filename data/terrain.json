@@ -1,7 +1,7 @@
 {
   "continentalness": {
-    "octaves": 1,
-    "frequency": 0.1,
+    "octaves": 4,
+    "frequency": 0.01,
     "spline": [
       {
         "splinePoint": [0, 0.25],
@@ -53,6 +53,16 @@
   "undulation": {
     "octaves": 1,
     "frequency": 0.2,
+    "spline": []
+  },
+  "temperature": {
+    "octaves": 1,
+    "frequency": 0.02,
+    "spline": []
+  },
+  "humidity": {
+    "octaves": 1,
+    "frequency": 0.05,
     "spline": []
   }
 }

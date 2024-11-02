@@ -7,24 +7,21 @@ type Settings = {
   size: number;
   height: number;
   seed: number;
-  waterLevel: number;
   currentEdit: Variable;
 };
 
 const defaultSettings: Settings = {
-  size: 16,
-  height: 2.5,
+  size: 32,
+  height: 1.5,
   seed: 1,
-  waterLevel: 0.1,
   currentEdit: "continentalness",
 };
 
 const SettingsContext = createContext({
   settings: defaultSettings as Settings,
-  size: 16 as number,
-  height: 2.5 as number,
+  size: 32 as number,
+  height: 1.5 as number,
   seed: 1 as number,
-  waterLevel: 0.1 as number,
   currentEdit: null as Variable,
   setSettings: (settings: Settings) => null as unknown as void,
   updateSetting: (key: keyof Settings, val: any) => null as unknown as void,
@@ -46,7 +43,6 @@ export const SettingsContextProvider = ({
     size: settings.size,
     height: settings.height,
     seed: settings.seed,
-    waterLevel: settings.waterLevel,
     currentEdit: settings.currentEdit,
     setSettings,
     updateSetting,
