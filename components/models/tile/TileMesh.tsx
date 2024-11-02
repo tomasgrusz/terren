@@ -9,17 +9,20 @@ import { calculateMesh } from "./utils";
 import { useContext, useEffect, useState } from "react";
 import { useThree } from "@react-three/fiber";
 import SceneContext from "@/data/scene-context";
+import { TileMesh } from "@/data/mesh-context";
 
 type TileMap = {
-  tiles: number[];
+  tiles: TileMesh;
   size: number;
   maxHeight: number;
+  waterLevel: number;
 };
 
 const TileMap: React.FC<TileMap> = ({
   tiles = [],
   size = 10,
   maxHeight = 1,
+  waterLevel = 0.2,
 }) => {
   const mapSize = Math.sqrt(tiles.length);
   const width = size / Math.sqrt(tiles.length);
@@ -55,6 +58,7 @@ const TileMap: React.FC<TileMap> = ({
       mapSize,
       width,
       maxHeight,
+      waterLevel,
     );
     const allVertices = new Float32Array([...vertices, ...baseVertices]);
     const geometry = new BufferGeometry();
@@ -71,7 +75,7 @@ const TileMap: React.FC<TileMap> = ({
       metalness: 0,
     });
     updateMesh([geometry, material]);
-  }, [tiles, size, maxHeight]);
+  }, [tiles, size, maxHeight, waterLevel]);
 
   if (!mesh) {
     return null;

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SettingsContextProvider } from "@/data/settings-context";
-import { MapContextProvider } from "@/data/map-context";
 import { SceneContextProvider } from "@/data/scene-context";
 import { Toaster } from "@/components/ui/sonner";
+import { MeshContextProvider } from "@/data/mesh-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,12 +46,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <SettingsContextProvider>
-          <MapContextProvider>
+          <MeshContextProvider>
             <SceneContextProvider>
               {children}
               <Toaster />
             </SceneContextProvider>
-          </MapContextProvider>
+          </MeshContextProvider>
         </SettingsContextProvider>
       </body>
     </html>

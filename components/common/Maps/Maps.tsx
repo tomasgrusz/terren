@@ -4,11 +4,11 @@ import NoiseMapImage from "../NoiseMap/NoiseMapImage";
 import styles from "./Maps.module.scss";
 import { Label } from "@/components/ui/label";
 import { Skeleton } from "@/components/ui/skeleton";
-import MapContext from "@/data/map-context";
 import SettingsContext from "@/data/settings-context";
+import MeshContext from "@/data/mesh-context";
 
 const Maps = () => {
-  const { continentalness, erosion, undulation } = useContext(MapContext);
+  const { continentalness, erosion, undulation } = useContext(MeshContext);
   const { updateSetting } = useContext(SettingsContext);
   return (
     <div className={styles.Maps}>

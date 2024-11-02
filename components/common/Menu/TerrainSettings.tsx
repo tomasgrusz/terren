@@ -10,11 +10,11 @@ import {
 } from "@/components/ui/tooltip";
 import { BsQuestion } from "react-icons/bs";
 import SplineFields from "./SplineFields";
-import MapContext from "@/data/map-context";
 import SettingsContext from "@/data/settings-context";
+import MeshContext from "@/data/mesh-context";
 
 const TerrainSettings = () => {
-  const map = useContext(MapContext);
+  const map = useContext(MeshContext);
   const { currentEdit } = useContext(SettingsContext);
 
   return (

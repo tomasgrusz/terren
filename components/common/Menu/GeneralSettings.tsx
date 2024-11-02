@@ -6,7 +6,8 @@ import { Label } from "@/components/ui/label";
 import SettingsContext from "@/data/settings-context";
 
 const GeneralSettings = () => {
-  const { seed, size, height, updateSetting } = useContext(SettingsContext);
+  const { seed, size, height, waterLevel, updateSetting } =
+    useContext(SettingsContext);
 
   return (
     <>
@@ -42,6 +43,17 @@ const GeneralSettings = () => {
           onValueChange={(value) => updateSetting("height", value[0])}
         />
         <Label>{height || 0}</Label>
+      </div>
+      <div className="flex flex-col gap-4">
+        <Label>Water Level</Label>
+        <Slider
+          defaultValue={[0.1]}
+          min={0.01}
+          max={1}
+          step={0.01}
+          onValueChange={(value) => updateSetting("waterLevel", value[0])}
+        />
+        <Label>{waterLevel || 0}</Label>
       </div>
     </>
   );
