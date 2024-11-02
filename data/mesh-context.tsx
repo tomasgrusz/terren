@@ -42,7 +42,10 @@ export const MeshContextProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     setMesh(
       continentalness.map.map((c, i) => {
-        const value = c * erosion.map[i] * undulation.map[i];
+        const value =
+          0.5 * c +
+          0.3 * (0.5 - 2 * erosion.map[i]) +
+          0.2 * (1 - 0.5 * erosion.map[i]) * undulation.map[i];
         const tile = {
           value,
           water: value <= WATER_LEVEL,
