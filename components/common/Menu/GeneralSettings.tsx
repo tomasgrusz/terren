@@ -4,6 +4,7 @@ import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 
 import SettingsContext from "@/data/settings-context";
+import { MAX_MAP_SIZE } from "@/data/constants";
 
 const GeneralSettings = () => {
   const { seed, size, height, updateSetting } = useContext(SettingsContext);
@@ -26,7 +27,7 @@ const GeneralSettings = () => {
         <Slider
           defaultValue={[32]}
           min={1}
-          max={128}
+          max={MAX_MAP_SIZE}
           step={1}
           onValueCommit={(value) => updateSetting("size", value[0])}
         />
