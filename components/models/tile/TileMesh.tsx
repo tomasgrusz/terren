@@ -15,14 +15,12 @@ type TileMap = {
   tiles: TileMesh;
   size: number;
   maxHeight: number;
-  waterLevel: number;
 };
 
 const TileMap: React.FC<TileMap> = ({
   tiles = [],
   size = 10,
   maxHeight = 1,
-  waterLevel = 0.2,
 }) => {
   const mapSize = Math.sqrt(tiles.length);
   const width = size / Math.sqrt(tiles.length);
@@ -58,7 +56,6 @@ const TileMap: React.FC<TileMap> = ({
       mapSize,
       width,
       maxHeight,
-      waterLevel,
     );
     const allVertices = new Float32Array([...vertices, ...baseVertices]);
     const geometry = new BufferGeometry();
@@ -75,7 +72,7 @@ const TileMap: React.FC<TileMap> = ({
       metalness: 0,
     });
     updateMesh([geometry, material]);
-  }, [tiles, size, maxHeight, waterLevel]);
+  }, [tiles, size, maxHeight]);
 
   if (!mesh) {
     return null;
