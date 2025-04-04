@@ -4,7 +4,7 @@ import { Tile } from "./mesh-context";
 // eslint-disable-next-line max-len
 export type Biome = "ocean" | "sea" | "frozenRiver" | "river" | "mountains" | "swamp" | "forest" | "grasslands" | "savanna" | "rainforest" | "desert" | "snowyBeach" | "beach" | "taiga" | "snowlands" | "error";
 
-export const WATER_LEVEL = 0.01;
+export const WATER_LEVEL = -0.1;
 export const WATER_COLOR: Color = new Color().setHSL(0.6, 1, 0.5);
 
 export const BIOME_COLORS: Record<Biome, Color> = {

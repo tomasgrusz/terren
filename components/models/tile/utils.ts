@@ -5,7 +5,7 @@ import { Color } from "three";
 const calculateTileVertices = (tile: Tile, tileIndex: number, mapSize: number, tileSize: number, maxHeight: number): number[] => {
   const row = Math.floor(tileIndex / mapSize);
   const column = tileIndex % mapSize;
-  const height = !tile.water ? tile.value * maxHeight : WATER_LEVEL * maxHeight;
+  const height = tile.water ? WATER_LEVEL : tile.value * maxHeight;
   const vertix1 = [row * tileSize, height, column * tileSize];
   const vertix2 = [row * tileSize + tileSize, height, column * tileSize];
   const vertix3 = [row * tileSize, height, column * tileSize + tileSize];
@@ -127,9 +127,9 @@ const calculateTileColors = (tile: Tile): number[] => {
   let _color = new Color();
   _color = tile.biome ? BIOME_COLORS[tile.biome] : new Color().setColorName("pink");
   return Array.from({ length: 4 }, () => [
-    _color.r,
-    _color.g,
-    _color.b,
+    _color.r + (tile.water ? -tile.value : tile.value - 0.25) * 0.5,
+    _color.g + (tile.water ? -tile.value : tile.value - 0.25) * 0.5,
+    _color.b + (tile.water ? -tile.value : tile.value - 0.25) * 0.5,
   ]).flat(1);
 };
 

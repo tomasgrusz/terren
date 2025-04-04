@@ -55,9 +55,13 @@ export const MeshContextProvider = ({ children }: { children: ReactNode }) => {
           temperature: temperature.map[i],
           humidity: humidity.map[i],
         };
+        const biome = calculateBiome(tile);
         return {
           ...tile,
-          biome: calculateBiome(tile),
+          biome,
+          water: ["ocean", "sea", "river", "frozenRiver"].includes(
+            biome || "error",
+          ),
         };
       }),
     );
