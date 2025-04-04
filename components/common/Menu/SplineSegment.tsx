@@ -9,14 +9,18 @@ import { MdDeleteOutline } from "react-icons/md";
 
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Slider } from "@/components/ui/slider";
-import { SplinePoint, SplineSegment, SplineTransition } from "@/types/spline";
+import {
+  SplinePoint,
+  SplineSegment as Segment,
+  SplineTransition,
+} from "@/types/spline";
 import { useEffect, useState } from "react";
 import { BiSolidError } from "react-icons/bi";
 
 type SplineSegmentProps = {
-  update: (spline: SplineSegment, id: number) => boolean;
+  update: (spline: Segment, id: number) => boolean;
   id: number;
-  segment: SplineSegment;
+  segment: Segment;
   remove: (id: number) => void;
 };
 
@@ -56,7 +60,7 @@ const SplineSegment: React.FC<SplineSegmentProps> = ({
           variant={isValid ? "secondary" : "destructive"}
           className="flex gap-2 items-center text-center"
         >
-          Segment [{segment.splinePoint[0]} - {segment.splinePoint[1]}]{" "}
+          [{segment.splinePoint[0]} - {segment.splinePoint[1]}]{" "}
           {isValid ? "" : <BiSolidError className="text-[16px]" />}
         </Button>
       </PopoverTrigger>

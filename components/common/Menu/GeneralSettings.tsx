@@ -12,7 +12,10 @@ const GeneralSettings = () => {
   return (
     <>
       <div className="flex flex-col gap-4">
-        <Label>Seed</Label>
+        <div className="flex items-center justify-between pr-2">
+          <Label>Seed</Label>
+          <Label>{seed || 0}</Label>
+        </div>
         <Slider
           defaultValue={[1]}
           min={1}
@@ -20,10 +23,12 @@ const GeneralSettings = () => {
           step={1}
           onValueChange={(value) => updateSetting("seed", value[0])}
         />
-        <Label>{seed || 0}</Label>
       </div>
       <div className="flex flex-col gap-4">
-        <Label>Size</Label>
+        <div className="flex items-center justify-between pr-2">
+          <Label>Size</Label>
+          <Label>{size || 0}</Label>
+        </div>
         <Slider
           defaultValue={[32]}
           min={1}
@@ -31,10 +36,12 @@ const GeneralSettings = () => {
           step={1}
           onValueCommit={(value) => updateSetting("size", value[0])}
         />
-        <Label>{size || 0}</Label>
       </div>
       <div className="flex flex-col gap-4">
-        <Label>Maximum Height</Label>
+        <div className="flex items-center justify-between pr-2">
+          <Label>Maximum Height</Label>
+          <Label>{height || 0}</Label>
+        </div>
         <Slider
           defaultValue={[1.5]}
           min={1.0}
@@ -42,7 +49,6 @@ const GeneralSettings = () => {
           step={0.1}
           onValueChange={(value) => updateSetting("height", value[0])}
         />
-        <Label>{height || 0}</Label>
       </div>
     </>
   );
