@@ -1,5 +1,6 @@
 import Maps from "@/components/common/Maps/Maps";
 import Menu from "@/components/common/Menu";
+import GithubMessage from "@/components/GithubMessage";
 import Scene from "@/components/models/Scene";
 import {
   ResizableHandle,
@@ -32,6 +33,7 @@ export default function Home() {
           <Menu />
         </ResizablePanel>
       </ResizablePanelGroup>
+      <GithubMessage />
     </main>
   );
 }
