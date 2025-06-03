@@ -1,5 +1,6 @@
 import { BIOME_COLORS, WATER_LEVEL } from "@/data/biomes";
 import { Tile, TileMesh } from "@/data/mesh-context";
+import hslToRgb from "@/utils/hslToRgb";
 import { Color } from "three";
 
 const calculateTileVertices = (tile: Tile, tileIndex: number, mapSize: number, tileSize: number, maxHeight: number): number[] => {
@@ -123,7 +124,14 @@ const calculateTileIndices = (tileIndex: number, mapSize: number): number[] => {
   ].flat(1);
 };
 
-const calculateTileColors = (tile: Tile): number[] => {
+const calculateTileColors = (tile: Tile, biomesEnabled?: boolean): number[] => {
+  if (!biomesEnabled) {
+    const color = Array.from({ length: 4 }, () => {
+      const rgb = hslToRgb((1 - tile.value) * (100 / 255), 1, 0.5);
+      return rgb.map(c => c / 255);
+    }).flat(1);
+    return color;
+  }
   let _color = new Color();
   _color = tile.biome ? BIOME_COLORS[tile.biome] : new Color().setColorName("pink");
   return Array.from({ length: 4 }, () => [
@@ -133,7 +141,7 @@ const calculateTileColors = (tile: Tile): number[] => {
   ]).flat(1);
 };
 
-export const calculateMesh = (tiles: TileMesh, mapSize: number, tileSize: number, maxHeight: number): [number[], number[], number[], number[]] => {
+export const calculateMesh = (tiles: TileMesh, mapSize: number, tileSize: number, maxHeight: number, biomesEnabled: boolean): [number[], number[], number[], number[]] => {
   const _vertices: number[][] = [];
   const _baseVertices: number[][] = [];
   const _indices: number[][] = [];
@@ -143,7 +151,7 @@ export const calculateMesh = (tiles: TileMesh, mapSize: number, tileSize: number
     _vertices.push(calculateTileVertices(tile, i, mapSize, tileSize, maxHeight));
     _baseVertices.push(calculateTileBedVertices(i, mapSize, tileSize));
     _indices.push(calculateTileIndices(i, mapSize));
-    _colors.push(calculateTileColors(tile));
+    _colors.push(calculateTileColors(tile, biomesEnabled));
   });
 
   const vertices = _vertices.flat(1);

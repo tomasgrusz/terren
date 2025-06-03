@@ -10,6 +10,7 @@ import { useContext, useEffect, useState } from "react";
 import { useThree } from "@react-three/fiber";
 import SceneContext from "@/data/scene-context";
 import { TileMesh } from "@/data/mesh-context";
+import SettingsContext from "@/data/settings-context";
 
 type TileMap = {
   tiles: TileMesh;
@@ -27,6 +28,7 @@ const TileMap: React.FC<TileMap> = ({
 
   const { gl, scene, camera } = useThree();
   const { setGL, setScene, setCamera } = useContext(SceneContext);
+  const { biomesEnabled } = useContext(SettingsContext);
 
   useEffect(() => {
     if (gl) {
@@ -56,6 +58,7 @@ const TileMap: React.FC<TileMap> = ({
       mapSize,
       width,
       maxHeight,
+      biomesEnabled,
     );
     const allVertices = new Float32Array([...vertices, ...baseVertices]);
     const geometry = new BufferGeometry();
@@ -72,7 +75,7 @@ const TileMap: React.FC<TileMap> = ({
       metalness: 0,
     });
     updateMesh([geometry, material]);
-  }, [tiles, size, maxHeight]);
+  }, [tiles, size, maxHeight, biomesEnabled]);
 
   if (!mesh) {
     return null;

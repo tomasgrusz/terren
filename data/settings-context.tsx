@@ -8,6 +8,7 @@ type Settings = {
   height: number;
   seed: number;
   currentEdit: Variable;
+  biomesEnabled: boolean;
 };
 
 const defaultSettings: Settings = {
@@ -15,6 +16,7 @@ const defaultSettings: Settings = {
   height: 1.5,
   seed: 1,
   currentEdit: "continentalness",
+  biomesEnabled: false,
 };
 
 const SettingsContext = createContext({
@@ -23,6 +25,7 @@ const SettingsContext = createContext({
   height: 1.5 as number,
   seed: 1 as number,
   currentEdit: null as Variable,
+  biomesEnabled: false as boolean,
   setSettings: (settings: Settings) => null as unknown as void,
   updateSetting: (key: keyof Settings, val: any) => null as unknown as void,
 });
@@ -44,6 +47,7 @@ export const SettingsContextProvider = ({
     height: settings.height,
     seed: settings.seed,
     currentEdit: settings.currentEdit,
+    biomesEnabled: settings.biomesEnabled,
     setSettings,
     updateSetting,
   };
