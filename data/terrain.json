@@ -1,15 +1,15 @@
 {
   "continentalness": {
-    "octaves": 1,
-    "frequency": 0.1,
+    "octaves": 4,
+    "frequency": 0.005,
     "spline": [
       {
-        "splinePoint": [0, 0.25],
+        "splinePoint": [0, 0.2],
         "height": [0, 0],
         "transition": "constant"
       },
       {
-        "splinePoint": [0.25, 0.3],
+        "splinePoint": [0.2, 0.3],
         "height": [0, 0.45],
         "transition": "easeInOut"
       },
@@ -46,13 +46,23 @@
     ]
   },
   "erosion": {
-    "octaves": 1,
-    "frequency": 0.05,
+    "octaves": 2,
+    "frequency": 0.01,
     "spline": []
   },
   "undulation": {
     "octaves": 1,
     "frequency": 0.2,
+    "spline": []
+  },
+  "temperature": {
+    "octaves": 1,
+    "frequency": 0.01,
+    "spline": []
+  },
+  "humidity": {
+    "octaves": 1,
+    "frequency": 0.01,
     "spline": []
   }
 }

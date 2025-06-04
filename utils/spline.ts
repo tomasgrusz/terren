@@ -57,7 +57,7 @@ const SplineEquation = {
   (splinePoint: SplinePoint, height: HeightRange, value: number) => number
 >;
 
-const splinePoint = (value: number, spline: Spline) => {
+export const splinePoint = (value: number, spline: Spline) => {
   const segment = spline.find(
     (segment) =>
       value >= segment.splinePoint[0] && value < segment.splinePoint[1],
@@ -74,5 +74,8 @@ const splinePoint = (value: number, spline: Spline) => {
   );
 };
 
-export const spline = (map: Map, spline: Spline) =>
-  map.map((point) => splinePoint(point, spline)) as Map;
+export const spline = async (map: Map, spline: Spline) => {
+  const _map: Map = [];
+  await map.forEach(async (point) => await _map.push(splinePoint(point, spline)));
+  return _map;
+};

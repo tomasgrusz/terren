@@ -3,12 +3,12 @@ import { useContext } from "react";
 import NoiseMapImage from "../NoiseMap/NoiseMapImage";
 import styles from "./Maps.module.scss";
 import { Label } from "@/components/ui/label";
-import { Skeleton } from "@/components/ui/skeleton";
-import MapContext from "@/data/map-context";
 import SettingsContext from "@/data/settings-context";
+import MeshContext from "@/data/mesh-context";
 
 const Maps = () => {
-  const { continentalness, erosion, undulation } = useContext(MapContext);
+  const { continentalness, erosion, undulation, temperature, humidity } =
+    useContext(MeshContext);
   const { updateSetting } = useContext(SettingsContext);
   return (
     <div className={styles.Maps}>
@@ -47,11 +47,25 @@ const Maps = () => {
       </div>
       <div>
         <Label>Temperature</Label>
-        <Skeleton className={styles.skeleton} />
+        {temperature && (
+          <div
+            className="w-full"
+            onClick={() => updateSetting("currentEdit", "temperature")}
+          >
+            <NoiseMapImage noiseMap={temperature.map} color />
+          </div>
+        )}
       </div>
       <div>
         <Label>Humidity</Label>
-        <Skeleton className={styles.skeleton} />
+        {humidity && (
+          <div
+            className="w-full"
+            onClick={() => updateSetting("currentEdit", "humidity")}
+          >
+            <NoiseMapImage noiseMap={humidity.map} color />
+          </div>
+        )}
       </div>
     </div>
   );

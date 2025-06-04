@@ -84,7 +84,7 @@ const SplineFields: React.FC<SplineFieldsProps> = ({ terrain }) => {
           <BsPlus className="text-[24px]" /> Add
         </Button>
       </div>
-      <div className="flex gap-2 flex-wrap">
+      <div className="flex gap-2 flex-wrap max-h-[300px] overflow-y-auto">
         {settings.spline.map((segment, i) => (
           <SplineSegmentField
             key={i}

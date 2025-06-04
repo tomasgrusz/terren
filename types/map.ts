@@ -4,4 +4,5 @@ export type MapSettings = {
   size: number;
   height: number;
   seed: number;
+  waterLevel: number;
 };

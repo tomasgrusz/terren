@@ -5,6 +5,7 @@ import usePerlin, { Octaves } from "@/hooks/usePerlin";
 import { spline as getSpline } from "@/utils/spline";
 import { Spline } from "@/types/spline";
 import SettingsContext from "@/data/settings-context";
+import { MAX_MAP_SIZE } from "@/data/constants";
 
 // settings for the terrain
 export type TerrainSettings = {
@@ -13,9 +14,7 @@ export type TerrainSettings = {
   spline: Spline;
 };
 
-const MAX_MAP_SIZE = 128;
-
-const useTerrain = (defaultSettings: TerrainSettings) => {
+const useTerrain = (defaultSettings: TerrainSettings, seedIndex: number) => {
   const { seed, size } = useContext(SettingsContext);
   const [settings, setSettings] = useState<TerrainSettings>(defaultSettings);
   const updateSetting = (key: keyof TerrainSettings, val: any) => {
@@ -23,13 +22,21 @@ const useTerrain = (defaultSettings: TerrainSettings) => {
   };
   const [map, setMap] = useState<Map>([]);
 
-  const { getValues } = usePerlin(seed, MAX_MAP_SIZE, settings.octaves);
+  const { getValues } = usePerlin(seed + seedIndex, MAX_MAP_SIZE, settings.octaves);
 
   // whenever the settings change, update the map
   useEffect(() => {
-    const perlin = getValues(size, settings.frequency);
-    const spline = getSpline(perlin, settings.spline);
-    setMap(spline);
+    const perlin = async () => getValues(size, settings.frequency);
+    const fetchData = async () => {
+      // get the data from the api
+      const data = await perlin();
+      // convert the data to json
+      const json = await getSpline(data, settings.spline);
+  
+      // set state with the result
+      setMap(json);
+    };
+    fetchData();
   }, [settings, size, seed]);
 
   return { settings, setSettings, updateSetting, map, setMap };

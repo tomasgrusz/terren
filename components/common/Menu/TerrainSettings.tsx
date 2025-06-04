@@ -10,11 +10,11 @@ import {
 } from "@/components/ui/tooltip";
 import { BsQuestion } from "react-icons/bs";
 import SplineFields from "./SplineFields";
-import MapContext from "@/data/map-context";
 import SettingsContext from "@/data/settings-context";
+import MeshContext from "@/data/mesh-context";
 
 const TerrainSettings = () => {
-  const map = useContext(MapContext);
+  const map = useContext(MeshContext);
   const { currentEdit } = useContext(SettingsContext);
 
   return (
@@ -22,22 +22,25 @@ const TerrainSettings = () => {
       {currentEdit && (
         <div className="flex flex-col gap-4">
           <Label className="ml-auto mr-auto">{currentEdit.toUpperCase()}</Label>
-          <TooltipProvider delayDuration={300}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Label className="cursor-help">
-                  Perlin Octaves
-                  <BsQuestion className="inline" />
-                </Label>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>
-                  More octaves lead to higher variation/details but lower
-                  performance.
-                </p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+          <div className="flex items-center justify-between pr-2">
+            <TooltipProvider delayDuration={300}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Label className="cursor-help">
+                    Perlin Octaves
+                    <BsQuestion className="inline" />
+                  </Label>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>
+                    Higher octaves lead to more variation but slower
+                    performance.
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+            <Label>{map[currentEdit].settings.octaves || 0}</Label>
+          </div>
           <Slider
             defaultValue={[1]}
             min={1}
@@ -48,7 +51,6 @@ const TerrainSettings = () => {
               map[currentEdit].updateSetting("octaves", value[0])
             }
           />
-          <Label>{map[currentEdit].settings.octaves || 0}</Label>
           <SplineFields terrain={map[currentEdit]} />
         </div>
       )}
