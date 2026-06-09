@@ -9,10 +9,6 @@ Whether you’re a seasoned developer, a creative enthusiast, or simply curious 
 
 With Terren, you’re not limited to pre-defined landscapes – import your own noise maps to generate terrains that reflect your vision.
 
-> [!NOTE] > **_(coming soon)_**
->
-> Export your creations as images, .glb models for use in 3D applications, or JSON configurations for seamless integration into your projects.
-
 <h2>🚀 Demo</h2>
 
 [terren.grusz.dev](https://terren.grusz.dev)
